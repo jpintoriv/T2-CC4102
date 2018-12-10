@@ -19,7 +19,8 @@ public class Experiment {
 		  System.out.println("error with factor 'e' for edges");
 		  return;
 	  }
-	  if(e != 10 || e != 100 || e != 1000) {
+	  System.out.println(e);
+	  if(e != 10 && e != 100 && e != 1000) {
 		  System.out.println("error with factor 'e' for edges");
 		  return;
 	  }
