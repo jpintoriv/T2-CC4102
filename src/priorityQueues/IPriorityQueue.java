@@ -4,7 +4,7 @@ import elements.Element;
 
 public interface IPriorityQueue {
 	
-	void insert(int value, double dist);
+	void insert(int value, double priority);
 	
 	Element extractMin();
 	

@@ -1,7 +1,9 @@
 package dijkstras;
 
 public interface IDijkstra {
-	void execute();
+	void execute(int originNode);
 	
 	double[] getDistances();
+	
+	int[] getPaths();
 }

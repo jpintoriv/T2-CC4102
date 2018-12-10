@@ -8,19 +8,20 @@ import priorityQueues.IPriorityQueue;
 
 public class Dijkstra implements IDijkstra {
 	Graph graph;
-	int originNode;
 	double[] dist;
 	IPriorityQueue pq;
 	int[] prev;
 	
-	public Dijkstra(Graph graph, int originNode, IPriorityQueue pq) {
+	public Dijkstra(Graph graph, IPriorityQueue pq) {
 		this.graph = graph;
-		this.originNode = originNode;
 		this.pq = pq;
+		int cantNodes = graph.getCantNodes();
+		this.dist = new double[cantNodes];
+		this.prev = new int[cantNodes];
 	}
 
 	@Override
-	public void execute() {
+	public void execute(int originNode) {
 		int cantNodes = this.graph.getCantNodes();
 	    
 	    for(int i = 0; i < cantNodes; i++){
@@ -50,6 +51,11 @@ public class Dijkstra implements IDijkstra {
 	@Override
 	public double[] getDistances() {
 		return this.dist;
+	}
+
+	@Override
+	public int[] getPaths() {
+		return this.prev;
 	}
 
 }
