@@ -8,13 +8,13 @@ public class Graph {
 	int e;
 	
 	ArrayList<Integer>[] edges;
-	Hashtable<Integer, Double> dist;
+	Hashtable<Integer, Double>[] dist;
 	
 	@SuppressWarnings("unchecked")
 	public Graph(int factorEdges) {
 		this.e = this.cantNodes*factorEdges;
-		edges = new ArrayList[this.cantNodes];
-		dist = new Hashtable<Integer, Double>();
+		this.edges = new ArrayList[this.cantNodes];
+		this.dist = new Hashtable[this.cantNodes];
 		this.setEdges();
 	}
 	
@@ -22,7 +22,8 @@ public class Graph {
 		 for(int i = 0; i < cantNodes-1; i++){
 		      this.edges[i] = new ArrayList<Integer>();
 		      this.edges[i].add(i+1);
-	          
+	         	      
+		      dist[i] = new Hashtable<Integer, Double>();
 		      this.genterateDist(i, i+1);
 		      
 		    }
@@ -43,28 +44,15 @@ public class Graph {
 	private void genterateDist(int x, int y){
 	  int min = Math.min(x, y);
       int max = Math.max(x, y);
-        
-      String in = Integer.toString(max);
-      String fi = Integer.toString(min);
-      String conc = in + fi;
-        
-      int tosave = Integer.parseInt(conc);
-      this.dist.put(tosave, Math.random());
-	  
+      
+      this.dist[min].put(max, Math.random());
 	}
 	
 	public double getDist(int x, int y){
-	  System.out.println("querie "+x+" "+y);
 	  int min = Math.min(x, y);
       int max = Math.max(x, y);
-      
-      String in = Integer.toString(max);
-      String fi = Integer.toString(min);
-      String conc = in + fi;
-      
-      int query = Integer.parseInt(conc);
-      System.out.println("query: "+query);
-      return this.dist.get(query);	  
+ 
+      return this.dist[min].get(max);	  
 	}
 	
 	public ArrayList<Integer>[] getEdges(){

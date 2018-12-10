@@ -1,11 +1,11 @@
-package naive;
+package dijkstras;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import graph.Graph;
 
-public class Naive {
+public class Naive implements IDijkstra {
   double[] dist;
   boolean[] visited;
   int[] prev;

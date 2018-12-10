@@ -1,7 +1,7 @@
 package experiment;
 
+import dijkstras.Naive;
 import graph.Graph;
-import naive.Naive;
 
 public class Experiment {
 
